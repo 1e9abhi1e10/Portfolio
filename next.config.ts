@@ -16,14 +16,14 @@ const nextConfig: NextConfig = {
         hostname: 'via.placeholder.com',
       }
     ],
-    unoptimized: true, // Required for static export
+    // On Vercel, image optimization is enabled by default
+    // Set unoptimized: true only if deploying to static hosting (GitHub Pages)
+    unoptimized: process.env.NEXT_PUBLIC_STATIC_EXPORT === 'true',
   },
-  output: 'export', // Enable static export for GitHub Pages
-  // If deploying to a project repository (e.g., username.github.io/Portfolio)
-  // uncomment and set the basePath to your repository name:
-  // basePath: '/Portfolio',
-  // If deploying to user/organization page (e.g., username.github.io), leave basePath commented
-  trailingSlash: true, // GitHub Pages works better with trailing slashes
+  // Remove 'output: export' for Vercel deployment to enable full Next.js features
+  // Uncomment the line below only if deploying to GitHub Pages or other static hosting
+  // output: 'export',
+  trailingSlash: true,
 };
 
 export default nextConfig;
