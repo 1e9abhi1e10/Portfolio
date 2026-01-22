@@ -25,7 +25,7 @@ export default function ProjectsPage() {
   }
 
   const categories = ['all', ...Array.from(new Set(projects.map(p => p.category)))];
-  const statuses = ['all', ...Array.from(new Set(projects.map(p => p.status).filter((s): s is string => s !== undefined && s !== null)))];
+  const statuses = ['all', ...Array.from(new Set(projects.map(p => p.status).filter((s): s is 'completed' | 'in-progress' | 'planned' => s !== undefined && s !== null)))];
 
   const filteredProjects = projects.filter((project) => {
     const matchesCategory = selectedCategory === 'all' || project.category === selectedCategory;

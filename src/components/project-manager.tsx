@@ -303,7 +303,7 @@ export default function ProjectManager({ projects, onUpdate }: ProjectManagerPro
               </p>
               <div className="flex justify-between text-xs text-gray-500">
                 <span className="capitalize">{project.category}</span>
-                <span className="capitalize">{project.status.replace('-', ' ')}</span>
+                <span className="capitalize">{project.status?.replace('-', ' ') || 'N/A'}</span>
               </div>
               <div className="mt-2 flex flex-wrap gap-1">
                 {project.technologies.slice(0, 3).map((tech) => (
